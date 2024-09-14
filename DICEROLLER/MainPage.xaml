@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiceRoller.MainPage">
+
+    <AbsoluteLayout>
+        <ScrollView
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional">
+            <VerticalStackLayout
+                Padding="30,0"
+                Spacing="25"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+
+                <Label
+                    Text="ROLADOR DE DADOS"
+                    FontSize="Large"
+                    HorizontalOptions="Center" />
+
+                <Label 
+                    Text="Resultado: "             
+                    FontSize="Header"
+                    x:Name="ResultLabel"
+                    HorizontalOptions="Center" />
+
+                <Picker Title="Quantidade de Lados" x:Name="SidesPicker" HorizontalOptions="Center">
+                    <Picker.ItemsSource>
+                        <Array Type="{x:Type x:String}">
+                            <x:String>4</x:String>
+                            <x:String>6</x:String>
+                            <x:String>8</x:String>
+                            <x:String>10</x:String>
+                            <x:String>12</x:String>
+                            <x:String>20</x:String>
+                            <x:String>100</x:String>
+                        </Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Entry 
+                    x:Name="DiceCountEntry" 
+                    Placeholder="Quantidade de dados" 
+                    Keyboard="Numeric"
+                    HorizontalOptions="Center" />
+
+                <Picker Title="Modificador" x:Name="ModifierPicker" HorizontalOptions="Center">
+                    <Picker.ItemsSource>
+                        <Array Type="{x:Type x:String}">
+                            <x:String>+0</x:String>
+                            <x:String>+1</x:String>
+                            <x:String>+2</x:String>
+                            <x:String>+3</x:String>
+                            <x:String>+4</x:String>
+                            <x:String>+5</x:String>
+                            <x:String>+6</x:String>
+                        </Array>
+                    </Picker.ItemsSource>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+
+                <Button
+                    Text="ROLAR O DADO" 
+                    FontSize="Body"
+                    BackgroundColor="Black"
+                    x:Name="BtnSpin"
+                    Clicked="BtnSpin_Clicked"
+                    HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Button
+            Text="Sobre o Programador"
+            BackgroundColor="Black"
+            TextColor="White"
+            FontSize="Small"
+            Clicked="OnAboutClicked"
+            AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional" />
+    </AbsoluteLayout>
+
+</ContentPage>
